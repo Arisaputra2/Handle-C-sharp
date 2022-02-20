@@ -1,25 +1,193 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32112.339
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Check Box dan Radio Button", "Check Box dan Radio Button\Check Box dan Radio Button.csproj", "{294BD280-30A9-4A77-BC46-14F5DF178304}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{294BD280-30A9-4A77-BC46-14F5DF178304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{294BD280-30A9-4A77-BC46-14F5DF178304}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{294BD280-30A9-4A77-BC46-14F5DF178304}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{294BD280-30A9-4A77-BC46-14F5DF178304}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6256E1AC-534D-4C94-9710-C4A59F8ACE79}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Check_Box_dan_Radio_Button
+{
+    public partial class Form1 : Form
+    {
+        Font myFont = new Font("Microsoft Sans Serif", 22, FontStyle.Regular);
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+
+        private void checkBoxStrikeOut_CheckedChanged(object sender, EventArgs e)
+        {
+            /*ubahEfek();*/
+            connect();
+        
+        }
+
+        private void UndLine_CheckedChanged(object sender, EventArgs e)
+        {
+
+            /*ubahEfek();*/
+            connect();
+                      
+        }
+
+       /* private void ubahEfek()
+        {
+            if (checkBoxStrikeOut.Checked == false && UndLine.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Regular);
+            }
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout);
+            }
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline);
+            }
+            else
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline | FontStyle.Strikeout);
+            }
+            
+        }*/
+
+        private void Rglr_CheckedChanged(object sender, EventArgs e)
+        {
+            /*if (Rglr.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Regular);
+            }*/
+            connect();
+        }
+
+        private void Itlc_CheckedChanged(object sender, EventArgs e)
+        {
+            connect();
+        }
+
+        private void Bld_CheckedChanged(object sender, EventArgs e)
+        {
+            /*if ( Bld.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Bold);
+            }*/
+            connect();
+        }
+
+        private void BldItc_CheckedChanged(object sender, EventArgs e)
+        {
+            /*if (BldItc.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Bold | FontStyle.Italic);
+            }*/
+            connect();
+            
+        }
+        private void connect()
+        {
+           if (checkBoxStrikeOut.Checked == false && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Regular);
+            }
+           /*StrikeOut*/
+           else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout);
+            }
+           /*Underline*/
+           else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline);
+            }
+            /*StrikeOut & Underline*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Underline);
+            }
+            /*Regular*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == false && Rglr.Checked == true && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Regular);
+            }
+            /*StrikeOut & Regular*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == false && Rglr.Checked == true && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Regular);
+            }
+            /*Underline & Regular*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == true && Rglr.Checked == true && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline | FontStyle.Regular);
+            }
+            /*StrikerOut & Underline & Regular*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == true && Rglr.Checked == true && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Underline | FontStyle.Regular);
+            }
+            /*italic*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == true && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Italic);
+            }
+            /*StrikeOut & italic*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == true && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Italic);
+            }
+           /*Underline & italic*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == true && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline | FontStyle.Italic);
+            }
+            /*StrikerOut & Underline & italic*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == true && Bld.Checked == false && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout| FontStyle.Underline | FontStyle.Italic);
+            }
+            /*Bold*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == true && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Bold);
+            }
+            /*StrikeOut & Bold*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == true && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Bold | FontStyle.Strikeout);
+            }
+            /*Underline & Bold*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == true && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline | FontStyle.Bold);
+            }
+            /*StrikerOut & Underline & Bold*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == true && BldItc.Checked == false)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Underline | FontStyle.Bold);
+            }
+            /*BoldItalic*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Bold | FontStyle.Italic);
+            }
+            /*StrikeOut & BoldItalic*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == false && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Bold | FontStyle.Italic);
+            }
+            /*Underline & BoldItalic*/
+            else if (checkBoxStrikeOut.Checked == false && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Underline | FontStyle.Bold | FontStyle.Italic);
+            }
+            /*StrikerOut & Underline & BoldItalic*/
+            else if (checkBoxStrikeOut.Checked == true && UndLine.Checked == true && Rglr.Checked == false && Itlc.Checked == false && Bld.Checked == false && BldItc.Checked == true)
+            {
+                TextBox.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Strikeout | FontStyle.Underline | FontStyle.Bold | FontStyle.Italic);
+            }
+        }
+    }
+}
